@@ -1,0 +1,52 @@
+{% extends 'base.html' %}
+{% block content %}
+
+
+{% for post in object_list %}
+
+<div class="s-content">
+            
+    <div class="masonry-wrap">
+
+        <div class="masonry">
+
+            <div class="grid-sizer"></div>
+
+            <article class="masonry__brick entry format-standard animate-this">
+                    
+                <div class="entry__thumb">
+                    <a href="{% url 'post_detail' post.slug %}" class="entry__thumb-link">
+                        <img src="{{ post.cover.url }}" alt="">
+                    </a>
+                </div>
+
+                <div class="entry__text">
+                    <div class="entry__header">
+
+                        <h2 class="entry__title"><a href="single-standard.html">{{ post.title }}</a></h2>
+                        <div class="entry__meta">
+                            <span class="entry__meta-cat">
+                                <a href="category.html">{{ post.category }}</a> 
+                                
+                            </span>
+                            <span class="entry__meta-date">
+                                <a href="single-standard.html">{{post.created_date}}</a>
+                            </span>
+                          </div>
+                        
+                    </div>
+                    <div class="entry__excerpt">
+                        <p>
+                        {{ post.text | slice:":200"}}
+                        </p>
+                    </div>
+                </div>
+
+            </article> 
+        </div>
+    </div>
+</div>
+{% endfor %}
+{% endblock content %} 
+
+   

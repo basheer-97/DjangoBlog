@@ -1,0 +1,86 @@
+{% extends 'base.html' %}
+{% block content %}
+
+
+        <!-- site content
+        ================================================== -->
+        <div class="s-content content">
+            <main class="row content__page">
+                
+                <article class="column large-full entry format-standard">
+
+                    <div class="media-wrap entry__media">
+                        <div class="entry__post-thumb">
+                            <img src="{{ post.cover.url }}" alt="">
+                        </div>
+                    </div>
+
+                    <div class="content__page-header entry__header">
+                        <h1 class="display-1 entry__title">
+                        {{post.title}}
+                        </h1>
+                        <ul class="entry__header-meta">
+                            <li class="author">By <a href="#0">{{ post.author }}</a></li>
+                            <li class="date">{{ object.created_date}}</li>
+                            <li class="cat-links">
+                                <a href="#0">{{object.category}}</a>
+                            </li>
+                        </ul>
+                    </div> <!-- end entry__header -->
+
+                    <div class="entry__content">
+
+                        <p class="lead drop-cap">
+                        {{ object.text }}
+                        </p>
+
+                        <p>
+                        <img src="{{ post.cover2.url }}" alt="">
+                        </p>
+
+                        <h2>{{ object.l_heading }}</h2>
+    
+                        <p>
+                            {{ object.l_heading_text }}
+                        </p>
+    
+                        <blockquote>
+                            <p>
+                            {{ object.quote }}
+                            </p>
+                            <cite>{{ object.quote_name}}</cite>
+                        </blockquote>
+    
+                        <p>
+                            {{ object.s_heading_text }}
+                        
+                        </p>
+    
+                        <h3>{{ object.s_heading }}</h3>
+    
+                        <p>
+                            {{ object.s_heading_text }}
+                        </p>
+
+
+
+                        <p class="entry__tags">
+                            <span>Post Tags</span>
+        
+                            <span class="entry__tag-list">
+                                <a href="#0">{{ object.tag_1 }}</a>
+                                <a href="#0">{{ object.tag_2 }}</a>
+                                <a href="#0">{{ object.tag_3 }}</a>
+                            </span>
+                            <a href="https://twitter.com/cdrs?ref_src=twsrc%5Etfw" class="twitter-follow-button" data-show-count="false">Follow @cdrs</a><script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+                        </p>
+                        <div class="fb-comments" data-href="https://cdrs19.pythonanywhere/{{ post.id }}" data-width="" data-numposts="5"></div>
+                        <div class="fb-like" data-href="https://cdrs19.pythonanywhere" data-width="" data-layout="box_count" data-action="like" data-size="small" data-share="true"></div>
+                    </div> <!-- end entry content -->
+
+                </article> <!-- end column large-full entry-->
+{% endblock content %} 
+                
+
+
+               
