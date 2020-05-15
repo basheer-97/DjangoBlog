@@ -9,3 +9,4 @@ urlpatterns = [
     path('contact/', views.ContactPageView, name='contact'),
     path('<slug:slug>/',PostDetailView.as_view(),name='post_detail'),
 ]
+

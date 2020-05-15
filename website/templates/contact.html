@@ -14,6 +14,13 @@
                             <img src="{% static 'images/thumbs/contact/contact-1000.jpg' %}"  alt="">
                         </div>
                     </div>
+                    {% if message_name %}
+                    <div>
+                        <h2>Hey - {{message_name }} </h2>
+                        <p>Thank you for sending mail.We will get back to you soon.</p>
+                    </div>
+
+                    {% else %}
 
                     <div class="content__page-header">
                         <h1 class="display-1">
@@ -22,23 +29,14 @@
                     </div> <!-- end content__page-header -->
 
                     <p class="lead drop-cap">
-                    Duis ex ad cupidatat tempor Excepteur cillum cupidatat 
-                    fugiat nostrud cupidatat dolor sunt sint sit nisi est eu exercitation 
-                    incididunt adipisicing veniam velit id fugiat enim mollit amet anim veniam dolor 
-                    dolor irure velit commodo cillum sit nulla ullamco magna amet magna cupidatat qui 
-                    labore cillum sit in tempor veniam consequat non laborum adipisicing aliqua 
-                    ea nisi sint.
+                    Typerite allows its audience to give useful suggestions and opinions on how we can improve ourselves.
+                    Any queries related to blog content can be asked.At Typerite, we make sure our facilities meet the 
+                    requirements of all people.
                     </p>
 
                     <p>
-                    Duis ex ad cupidatat tempor Excepteur cillum cupidatat fugiat nostrud cupidatat 
-                    dolor sunt sint sit nisi est eu exercitation incididunt adipisicing veniam velit 
-                    id fugiat enim mollit amet anim veniam dolor dolor irure velit commodo cillum sit 
-                    nulla ullamco magna amet magna cupidatat qui labore cillum sit in tempor veniam 
-                    consequat non laborum adipisicing aliqua ea nisi sint ut quis proident ullamco ut 
-                    dolore culpa occaecat ut laboris in sit minim cupidatat ut dolor voluptate enim 
-                    veniam consequat occaecat fugiat in adipisicing in amet Ut nulla nisi non ut enim 
-                    aliqua laborum mollit quis nostrud sed sed.
+                    Below are the deatils of our organization.You can contact us via email or phone-number.Plaese feel free to 
+                    contact us.
                     </p>
 
                     <div class="row">
@@ -64,11 +62,32 @@
                         </div>
                     </div>
 
-                    <h3 class="h2">Say Hello</h3>
+                    <h3 class="h2"> Contact Form - {{message_name}}</h3>
         
-                    
+                    <form name="contactForm" id="contactForm" method="post" action="{% url 'contact' %}" autocomplete="off">
+                        {% csrf_token %}
+                        <fieldset>
+    
+                            <div class="form-field">
+                                <input name="cName" id="cName" class="full-width" placeholder="Your Name" value="" type="text">
+                            </div>
+    
+                            <div class="form-field">
+                                <input name="cEmail" id="cEmail" class="full-width" placeholder="Your Email" value="" type="text">
+                            </div>
+    
+                            <div class="message form-field">
+                                <textarea name="cMessage" id="cMessage" class="full-width" placeholder="Your Message"></textarea>
+                            </div>
+    
+                            <input name="submit" id="submit" class="btn btn--primary btn-wide btn--large full-width" value="Send Message" type="submit">
+    
+                        </fieldset>
+                    </form> <!-- end form -->
+
 
                 </section>
+            {% endif %}
 
             </main>
 

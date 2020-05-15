@@ -5,13 +5,14 @@
 {% for post in object_list %}
 
 <div class="s-content">
+
+    <div class="masonry-wrap" >
+
+        <div class="masonry-grid masonry">
+
+            <div class="grid-sizer col-xs-3 col-sm-1 col-md-2 col-lg-3"></div>
             
-    <div class="masonry-wrap">
-
-        <div class="masonry">
-
-            <div class="grid-sizer"></div>
-
+            
             <article class="masonry__brick entry format-standard animate-this">
                     
                 <div class="entry__thumb">
@@ -23,14 +24,14 @@
                 <div class="entry__text">
                     <div class="entry__header">
 
-                        <h2 class="entry__title"><a href="single-standard.html">{{ post.title }}</a></h2>
+                        <h2 class="entry__title"><a href="{% url 'post_detail' post.slug %}">{{ post.title }}</a></h2>
                         <div class="entry__meta">
                             <span class="entry__meta-cat">
-                                <a href="category.html">{{ post.category }}</a> 
+                                <a href="{% url 'post_detail' post.slug %}">{{ post.category }}</a> 
                                 
                             </span>
                             <span class="entry__meta-date">
-                                <a href="single-standard.html">{{post.created_date}}</a>
+                                <a href="{% url 'post_detail' post.slug %}">{{post.created_date}}</a>
                             </span>
                           </div>
                         
@@ -41,12 +42,16 @@
                         </p>
                     </div>
                 </div>
-
-            </article> 
+                
+            </article>
+            
         </div>
     </div>
 </div>
 {% endfor %}
-{% endblock content %} 
+{% endblock content %}
+
+
+
 
    
