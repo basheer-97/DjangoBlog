@@ -30,6 +30,19 @@ def ContactPageView(request):
             message_email,
             ['firethrown12@gmail.com']
         )
+        # start code by aijaz  
+        ml=[]
+        results=[]
+        mylen=len(list(Post.objects.filter(auther="xyz")))
+        #print(mylen)
+        if mylen>0:            
+            n=len(list(Post.objects.filter(auther="xyz")))
+            for i in range(n):
+                l=str(list(Post.objects.filter(auther="xyz"))[i])
+                ml=l.split(';')
+                results.append(ml)
+        #end code of aijaz
+        
         return render(request, 'contact.html',{"message_name":message_name})
     else:
         return render(request, 'contact.html', {} )
