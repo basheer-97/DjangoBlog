@@ -34,7 +34,9 @@ class Post(models.Model):
         ordering=['-created_date']
 
     def __str__(self):
-        return self.title
+    		return "%s;%s;%s;%s;%s;%s;%s;%s;%s;%s;%s;%s;%s" %(self.cover,self.cover2,self.title,self.slug,self.author,
+            self.text,self.text_2,self.quote,self.quote_name,self.l_heading,self.l_heading_text,self.category,self.created_date)
+        #return self.title
 
 
 
